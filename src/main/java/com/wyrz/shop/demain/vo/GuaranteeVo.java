@@ -7,7 +7,7 @@ import com.wyrz.shop.demain.Guarantee;
  * @author Ritchieyan
  * @date 2014年12月13日下午1:53:27
  */
-public class GuranteeVo extends Guarantee {
+public class GuaranteeVo extends Guarantee {
 
 	/**
 	 * @fields serialVersionUID 
