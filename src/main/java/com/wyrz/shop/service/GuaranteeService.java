@@ -1,7 +1,7 @@
 package com.wyrz.shop.service;
 
 import com.wyrz.core.service.BaseService;
-import com.wyrz.shop.demain.Guarantee;
+import com.wyrz.shop.domain.Guarantee;
 
 /**
  * 合作机构Service

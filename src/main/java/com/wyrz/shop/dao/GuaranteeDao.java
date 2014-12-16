@@ -1,7 +1,7 @@
 package com.wyrz.shop.dao;
 
 import com.wyrz.core.dao.BaseDao;
-import com.wyrz.shop.demain.Guarantee;
+import com.wyrz.shop.domain.Guarantee;
 
 /**
  * 合作机构Dao

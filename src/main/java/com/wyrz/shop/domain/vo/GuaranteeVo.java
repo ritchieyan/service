@@ -1,6 +1,6 @@
-package com.wyrz.shop.demain.vo;
+package com.wyrz.shop.domain.vo;
 
-import com.wyrz.shop.demain.Guarantee;
+import com.wyrz.shop.domain.Guarantee;
 
 /**
  * 

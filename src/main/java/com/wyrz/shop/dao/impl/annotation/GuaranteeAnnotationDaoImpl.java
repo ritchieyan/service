@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import com.wyrz.core.dao.impl.BaseAnnotationDaoImpl;
 import com.wyrz.core.mapper.BaseMapper;
 import com.wyrz.shop.dao.GuaranteeDao;
-import com.wyrz.shop.demain.Guarantee;
+import com.wyrz.shop.domain.Guarantee;
 import com.wyrz.shop.mapper.GuaranteeMapper;
 
 /**
@@ -16,11 +16,14 @@ import com.wyrz.shop.mapper.GuaranteeMapper;
 @Repository("guaranteeAnnotationDao")
 public class GuaranteeAnnotationDaoImpl extends BaseAnnotationDaoImpl<Guarantee> implements GuaranteeDao {
 
-	private GuaranteeMapper guaranteeMapper;
+	@Override
+	protected BaseMapper<Guarantee> getWritableMapper() {
+		return writableSQLSession.getMapper(GuaranteeMapper.class);
+	}
 
 	@Override
-	protected BaseMapper<Guarantee> getMapper() {
-		return this.guaranteeMapper;
+	protected BaseMapper<Guarantee> getReadonlyMapper() {
+		return readonlySQLSession.getMapper(GuaranteeMapper.class);
 	}
 
 }

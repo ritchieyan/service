@@ -1,6 +1,6 @@
-package com.wyrz.shop.demain.query;
+package com.wyrz.shop.domain.query;
 
-import com.wyrz.shop.demain.Guarantee;
+import com.wyrz.shop.domain.Guarantee;
 
 /**
  * 

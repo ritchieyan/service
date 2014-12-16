@@ -1,4 +1,4 @@
-package com.wyrz.shop.demain;
+package com.wyrz.shop.domain;
 
 import java.math.BigInteger;
 
@@ -51,6 +51,12 @@ public class Guarantee implements Identifiable {
 	@Override
 	public void setId(BigInteger id) {
 		this.setGuaranteeId(id);
+	}
+
+	@Override
+	public String toString() {
+		return "Guarantee [guaranteeId=" + guaranteeId + ", guaranteeName=" + guaranteeName + ", guaranteeTel="
+				+ guaranteeTel + "]";
 	}
 
 }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.wyrz.core.dao.BaseDao;
 import com.wyrz.core.service.impl.BaseServiceImpl;
 import com.wyrz.shop.dao.GuaranteeDao;
-import com.wyrz.shop.demain.Guarantee;
+import com.wyrz.shop.domain.Guarantee;
 import com.wyrz.shop.service.GuaranteeService;
 
 /**

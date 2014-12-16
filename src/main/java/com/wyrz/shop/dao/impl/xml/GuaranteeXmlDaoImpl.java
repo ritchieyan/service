@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import com.wyrz.core.dao.impl.BaseXmlDaoImpl;
 import com.wyrz.shop.dao.GuaranteeDao;
-import com.wyrz.shop.demain.Guarantee;
+import com.wyrz.shop.domain.Guarantee;
 
 /**
  * 合作机构Dao实现类--Xml方式

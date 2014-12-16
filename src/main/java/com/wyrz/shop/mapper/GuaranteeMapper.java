@@ -2,11 +2,12 @@ package com.wyrz.shop.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
 
 import com.wyrz.core.mapper.BaseMapper;
-import com.wyrz.shop.demain.Guarantee;
+import com.wyrz.shop.domain.Guarantee;
 import com.wyrz.shop.mapper.provider.GuaranteeMapperProvider;
 
 /**
@@ -17,8 +18,12 @@ import com.wyrz.shop.mapper.provider.GuaranteeMapperProvider;
 public interface GuaranteeMapper extends BaseMapper<Guarantee> {
 
 	@Override
-	@Select("SELECT * FROM GUARANTEE")
-	public <V extends Guarantee> List<V> selectAll();
+	@Select("SELECT GUARANTEE_ID as guaranteeId, GUARANTEE_NAME as guaranteeName, GUARANTEE_TEL as guaranteeTel FROM GUARANTEE")
+	public List<Guarantee> selectAll();
+
+	@Override
+	@Select("SELECT GUARANTEE_ID as guaranteeId, GUARANTEE_NAME as guaranteeName, GUARANTEE_TEL as guaranteeTel FROM GUARANTEE WHERE GUARANTEE_ID=#{guaranteeId}")
+	public <V extends Guarantee> V selectById(@Param("guaranteeId") Integer id);
 
 	@Override
 	@SelectProvider(method = "deleteAll", type = GuaranteeMapperProvider.class)
