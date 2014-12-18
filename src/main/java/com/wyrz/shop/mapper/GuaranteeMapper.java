@@ -6,7 +6,6 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectProvider;
-import org.springframework.data.domain.Pageable;
 
 import com.wyrz.core.mapper.BaseMapper;
 import com.wyrz.shop.domain.Guarantee;
@@ -41,26 +40,28 @@ public interface GuaranteeMapper extends BaseMapper<Guarantee> {
 
 	@Override
 	@SelectProvider(method = "selectCount", type = GuaranteeMapperProvider.class)
-	public Long selectCount(Guarantee query);
+	public Long selectCount(Map<String, Object> params);
 
 	@Override
 	@SelectProvider(method = "selectIdList", type = GuaranteeMapperProvider.class)
-	public List<String> selectIdList(Guarantee query);
+	public List<String> selectIdList(Map<String, Object> params);
 
 	@Override
-	public <V extends Guarantee> List<V> selectList(Guarantee query);
+	@SelectProvider(method = "selectList", type = GuaranteeMapperProvider.class)
+	public <V extends Guarantee> List<V> selectList(Map<String, Object> params);
 
 	@Override
-	public <V extends Guarantee> List<V> selectList(Guarantee query, Pageable pageable);
+	@SelectProvider(method = "selectListToPage", type = GuaranteeMapperProvider.class)
+	public <V extends Guarantee> List<V> selectListToPage(Map<String, Object> params);
 
 	@Override
-	public <K, V extends Guarantee> Map<K, V> selectMap(Guarantee query, String mapKey);
+	public <K, V extends Guarantee> Map<K, V> selectMap(Map<String, Object> params);
 
 	@Override
-	public <K, V extends Guarantee> Map<K, V> selectMap(Guarantee query, String mapKey, Pageable pageable);
+	public <K, V extends Guarantee> Map<K, V> selectMapToPage(Map<String, Object> params);
 
 	@Override
-	public <V extends Guarantee> V selectOne(Guarantee query);
+	public <V extends Guarantee> V selectOne(Map<String, Object> params);
 
 	@Override
 	public int updateById(Guarantee entity);
@@ -72,13 +73,10 @@ public interface GuaranteeMapper extends BaseMapper<Guarantee> {
 	public void insert(Guarantee entity);
 
 	@Override
-	public int delete(Guarantee query);
+	public int delete(Map<String, Object> params);
 
 	@Override
 	public int deleteById(Integer id);
-
-	@Override
-	public void deleteByIdInBatch(List<Integer> idList);
 
 	@Override
 	@Select("DELETE FROM GUARANTEE")

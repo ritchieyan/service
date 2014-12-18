@@ -1,7 +1,9 @@
 package com.wyrz.shop.mapper.provider;
 
 import java.util.List;
+import java.util.Map;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.util.StringUtils;
 
 import com.wyrz.shop.domain.Guarantee;
@@ -56,6 +58,29 @@ public class GuaranteeMapperProvider {
 		if (StringUtils.isEmpty(query.getGuaranteeTel())) {
 			sb.append("AND GUARANTEE_TEL=#{guaranteeTel} ");
 		}
+		return sb.toString();
+	}
+
+	public String selectList(Map<String, Object> params) {
+		Guarantee guarantee = (Guarantee) params.get("guarantee");
+		Pageable pageable = (Pageable) params.get("pageable");
+
+		StringBuffer sb = new StringBuffer();
+		sb.append("SELECT GUARANTEE_ID as guaranteeId, GUARANTEE_NAME as guaranteeName, GUARANTEE_TEL as guaranteeTel ");
+		sb.append("WHERE 1=1 ");
+		if (StringUtils.isEmpty(guarantee.getGuaranteeId())) {
+			sb.append("AND GUARANTEE_ID=#{guaranteeId} ");
+		}
+		if (StringUtils.isEmpty(guarantee.getGuaranteeName())) {
+			sb.append("AND GUARANTEE_NAME=#{guaranteeName} ");
+		}
+		if (StringUtils.isEmpty(guarantee.getGuaranteeTel())) {
+			sb.append("AND GUARANTEE_TEL=#{guaranteeTel} ");
+		}
+		if (pageable.getSort().toString() == null) {
+			sb.append("ORDER BY ${sorting}");
+		}
+
 		return sb.toString();
 	}
 
