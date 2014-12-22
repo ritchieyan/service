@@ -16,14 +16,28 @@ import com.wyrz.shop.mapper.GuaranteeMapper;
 @Repository("guaranteeAnnotationDao")
 public class GuaranteeAnnotationDaoImpl extends BaseAnnotationDaoImpl<Guarantee> implements GuaranteeDao {
 
+	@SuppressWarnings("unchecked")
 	@Override
-	protected BaseMapper<Guarantee> getWritableMapper() {
-		return writableSQLSession.getMapper(GuaranteeMapper.class);
+	protected <I extends BaseMapper<Guarantee, ? extends Guarantee>> I getWritableMapper() {
+		return (I) writableSQLSession.getMapper(GuaranteeMapper.class);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
-	protected BaseMapper<Guarantee> getReadonlyMapper() {
-		return readonlySQLSession.getMapper(GuaranteeMapper.class);
+	protected <I extends BaseMapper<Guarantee, ? extends Guarantee>> I getReadonlyMapper() {
+		return (I) readonlySQLSession.getMapper(GuaranteeMapper.class);
 	}
+
+	// @SuppressWarnings("unchecked")
+	// @Override
+	// protected GuaranteeMapper getWritableMapper() {
+	// return writableSQLSession.getMapper(GuaranteeMapper.class);
+	// }
+	//
+	// @SuppressWarnings("unchecked")
+	// @Override
+	// protected GuaranteeMapper getReadonlyMapper() {
+	// return readonlySQLSession.getMapper(GuaranteeMapper.class);
+	// }
 
 }

@@ -1,7 +1,5 @@
 package com.wyrz.shop.domain;
 
-import java.math.BigInteger;
-
 import com.wyrz.core.dao.demain.Identifiable;
 
 /**
@@ -15,15 +13,15 @@ public class Guarantee implements Identifiable {
 	 * @fields serialVersionUID 
 	 */
 	private static final long serialVersionUID = 2018201382865632915L;
-	private BigInteger guaranteeId;// 合作机构编号
+	private Integer guaranteeId;// 合作机构编号
 	private String guaranteeName;// 合作机构名称
 	private String guaranteeTel;// 合作机构电话
 
-	public BigInteger getGuaranteeId() {
+	public Integer getGuaranteeId() {
 		return guaranteeId;
 	}
 
-	public void setGuaranteeId(BigInteger guaranteeId) {
+	public void setGuaranteeId(Integer guaranteeId) {
 		this.guaranteeId = guaranteeId;
 	}
 
@@ -44,12 +42,12 @@ public class Guarantee implements Identifiable {
 	}
 
 	@Override
-	public BigInteger getId() {
+	public Integer getId() {
 		return this.getGuaranteeId();
 	}
 
 	@Override
-	public void setId(BigInteger id) {
+	public void setId(Integer id) {
 		this.setGuaranteeId(id);
 	}
 
